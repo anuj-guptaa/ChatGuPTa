@@ -1,5 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+import openai
+
+
+openai_api_key = 'sk-'
+openai.api_key = openai_api_key
+
+def ask_openai(message):
+  response = openai.Completion.create
 
 # Create your views here.
 def chatbot(request):
