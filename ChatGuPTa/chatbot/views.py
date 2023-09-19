@@ -18,13 +18,23 @@ openai.api_key = openai_api_key
 
 def ask_openai(message):
   response = openai.Completion.create(
-
+    model = "text-davinci-003",
+    prompt = message,
+    max_tokens = 50,
+    n=1,
+    stop=None,
+    temperature=0.7,
   )
+
+  print(response)
+  answer = response.choices[0].text.strip()
+  print(answer)
+  return answer
 
 # Create your views here.
 def chatbot(request):
   if request.method == 'POST':
     message = request.POST.get('message')
-    response = 'I, this is my response'
+    response = ask_openai(message)
     return JsonResponse({'message': message, 'response': response})
   return render(request, 'chatbot.html')
