@@ -4,7 +4,9 @@ import openai
 
 from django.contrib import auth
 from django.contrib.auth.models import User
+from .models import Chat
 
+from django.utils import timezone
 
 import os
 from os.path import join, dirname
@@ -37,11 +39,17 @@ def ask_openai(message):
 
 # Create your views here.
 def chatbot(request):
+  chats = Chat.objects.filter(user=request.user)
+
   if request.method == 'POST':
     message = request.POST.get('message')
     response = ask_openai(message)
+
+    chat = Chat(user=request.user, message=message, response=response, created_at=timezone.now())
+    chat.save()
+
     return JsonResponse({'message': message, 'response': response})
-  return render(request, 'chatbot.html')
+  return render(request, 'chatbot.html', {'chats': chats})
 
 def login(request):
   if request.method == 'POST':
@@ -83,3 +91,4 @@ def register(request):
 
 def logout(request):
   auth.logout(request)
+  return redirect('login')
