@@ -9,7 +9,7 @@
 
 ## Homepage
 
-![Login](/ChatData/screenshots/ChatGuPTa-1.png?raw=true "Login")
+![Login](/ChatData/ChatData/screenshots/ChatGuPTa-1.png?raw=true "Login")
 
 ## ChatBot
 
