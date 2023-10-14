@@ -13,4 +13,4 @@
 
 ## ChatBot
 
-![Homepage](/ChatData/screenshots/ChatGuPTa-2.png?raw=true "Homepage")
+![Homepage](/ChatData/ChatData/screenshots/ChatGuPTa-2.png?raw=true "Homepage")
