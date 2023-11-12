@@ -1,4 +1,4 @@
-"#"
+This web application is powered by a Django Backend and utilizes OpenAI's GPT-3.5 LLM in order to provide real-time answers to user queries.
 
 ## How to run app
 
